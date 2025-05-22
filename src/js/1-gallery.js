@@ -1,3 +1,6 @@
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 const images = [
   {
     preview:
@@ -65,7 +68,13 @@ const images = [
 ];
 
 const galleryList = document.querySelector('.gallery');
-if (!galleryList) {console.log('error');}
+if (!galleryList) {
+  console.log('error');
+}
+
+// const galleryList = document.createElement('ul');
+// galleryList.classList.add('gallery');
+// document.body.appendChild(galleryList);
 
 const galleryMarkup = images
   .map(({ preview, original, description }) => {
@@ -82,14 +91,14 @@ const galleryMarkup = images
   })
   .join('');
 
-galleryList.insertAdjacentHTML('beforeend', galleryMarkup); 
+galleryList.insertAdjacentHTML('beforeend', galleryMarkup);
 
 
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-
+// Ініціалізація SimpleLightbox
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionPosition: 'bottom',
   captionDelay: 250,
 });
+
+// Динамічно створюємо <ul class="gallery"> і додаємо в DOM
